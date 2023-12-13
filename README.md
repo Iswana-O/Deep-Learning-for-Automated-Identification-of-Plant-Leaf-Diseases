@@ -1,4 +1,5 @@
 # Deep-Learning-for-Automated-Identification-of-Plant-Leaf-Diseases
+![](/Images/leaf.jpg)
  The agriculture sector in Kenya is essential, contributing 20% to the GDP and indirectly affecting another 27% through related sectors. It employs over 40% of the total population and 70% of rural inhabitants. Recognizing its importance in providing livelihoods and food, the Central Bank of Kenya launched the Survey of the Agriculture Sector in July 2022. This survey, alongside the CEOs and Market Perceptions Surveys, aims to generate frequent data to inform food supply, prices, and agricultural challenges, thereby supporting monetary policy decisions.
 
 The Economic Survey of 2022 revealed a slowdown in agricultural growth, from 5.2% in 2020 to a 0.1% contraction in 2021, mainly due to unfavorable weather, reducing crop and livestock performance. Maize production fell from 42.1 million bags in 2020 to 36.7 million in 2021, with similar trends in potatoes, beans, coffee, wheat, and tea. Factors like rising input costs, leaf rust infestation, and land use shifts to real estate contributed to this decline. In 2022, the sector contracted further in the first three quarters.
@@ -54,17 +55,39 @@ Since we were working with images the EDA involved various techniques to underst
 ## VISUAL INSPECTION
 A subset of images was visually inspected to understand the general characteristics, such as color distribution, presence of noise, and overall image quality.  We had 3 classes as per the below image Potato early blight, Potato Late blight, and Potato healthy.
 
+![](/Images/class.png)
+
+![](/Images/color%20distribution.png)
+
+![](/Images/RGB%20scatter%20for%20classes.png)
+
 ## MODEL ARCHITECTURE.
 ### Basic Model - CNN
 Our CNN model will use ReLU to introduce non-linearity and capture complex patterns in hidden layers and a Softmax output layer to convert raw scores into class probabilities for multi-class classification.
 
+
+
+![](/Images/training%20validation%20loss.png)
+
+![](/Images/training%20valiadation%20accuracy.png)
+
+
+
 ### Deep CNN Models
 From the basic CNN model we added 11 more layers to enforce deep learning. 
+
+
+![](/Images/deep%20ccnn%20training.png)
+
 
 ### GoogleNet's Inception Model.
 This method ensures efficient feature extraction with its inception modules, reducing parameters for computational efficiency. Its multi-pathway design captures diverse features, providing a broader receptive field and enabling effective representation learning.
 By augmenting this base with a Global Average Pooling layer and a Dense layer employing softmax activation for classification, the model adapts its knowledge to the task of identifying potato leaf diseases.
 An EarlyStopping callback is implemented to curb overfitting and ensure optimal generalization during the training process.
+
+![](/Images/inception%20validation%20loss.png)
+
+
 
 ## MODEL DEPLOYMENT
 For the deployment of our models, we were using Google Cloud Platform (GCP) and Streamlit. We developed a Streamlit app that will act as the interface for our models. Used Python to develop the script. Find the link here: https://predict-ipwknoicua-uc.a.run.app
