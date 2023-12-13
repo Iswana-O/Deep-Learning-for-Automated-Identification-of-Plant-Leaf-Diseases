@@ -58,39 +58,36 @@ A subset of images was visually inspected to understand the general characterist
 ### Basic Model - CNN
 Our CNN model will use ReLU to introduce non-linearity and capture complex patterns in hidden layers and a Softmax output layer to convert raw scores into class probabilities for multi-class classification.
 
+### Deep CNN Models
+From the basic CNN model we added 11 more layers to enforce deep learning. 
+
 ### GoogleNet's Inception Model.
 This method ensures efficient feature extraction with its inception modules, reducing parameters for computational efficiency. Its multi-pathway design captures diverse features, providing a broader receptive field and enabling effective representation learning.
-
 By augmenting this base with a Global Average Pooling layer and a Dense layer employing softmax activation for classification, the model adapts its knowledge to the task of identifying potato leaf diseases.
-
-An EarlyStopping callback is implemented to curb overfitting and ensure optimal generalization during the training process
-
-### Ensembled - CNN and Inception Models
-Our third model is an ensemble of base and Google Inception models, which we expected to typically combine the strengths of both architectures to improve the overall performance of our machine learning task. During inference, the potato image is passed through both models, and the combined model makes a prediction based on features extracted by both the CNN and Inception architectures
+An EarlyStopping callback is implemented to curb overfitting and ensure optimal generalization during the training process.
 
 ## MODEL DEPLOYMENT
-For the deployment of our models, we were using Google Cloud Platform (GCP) and Streamlit. we developed a Streamlit app that will act as the interface for our models.Used Python to develop the script.
+For the deployment of our models, we were using Google Cloud Platform (GCP) and Streamlit. We developed a Streamlit app that will act as the interface for our models. Used Python to develop the script. Find the link here: https://predict-ipwknoicua-uc.a.run.app
 
-We deployed the Streamlit app on a GCP service -App Engine . For App Engine, we created an app.yaml file to configure the deployment.
+We deployed the Streamlit app on a GCP service -App Engine . For App Engine, we created an app.yaml file to configure the deployment. 
 
 RECOMMENDATIONS AND CONCLUSIONS
 Base CNN Model:
 
-The Base CNN Model has delivered outstanding results by achieving a remarkably high validation accuracy of 96.67% in the intricate task of classifying potato leaf diseases. This significant accuracy underscores the model's proficiency in accurately identifying and categorizing diverse instances of potato leaf ailments. The achievement of such a high accuracy rate is indicative of the model's robust ability to detect abnormal patterns and features associated with different disease states in potato plants.
+The Base CNN Model has delivered outstanding results by achieving a remarkably high validation accuracy of 96.54% in the intricate task of classifying potato leaf diseases. This significant accuracy underscores the model's proficiency in accurately identifying and categorizing diverse instances of potato leaf ailments. The achievement of such a high accuracy rate is indicative of the model's robust ability to detect abnormal patterns and features associated with different disease states in potato plants.
 
 While the overall performance is promising, it is crucial to acknowledge and address the observed variations in accuracy across distinct disease classes. The model's ability to correctly identify specific diseases might be subject to fluctuations, necessitating a closer examination of its performance at a granular level. Understanding and mitigating these variations are pivotal steps in ensuring the model's reliability across the spectrum of potato leaf diseases.
 
+Deep CNN Model:
+
+
+
 Inception Model:
 
-The Inception Model has demonstrated commendable performance, achieving a validation accuracy of 95.83% in classifying potato leaf diseases. This accuracy signifies the model's effectiveness in extracting distinctive features relevant to disease patterns, albeit slightly lower compared to the Base CNN Model. The marginal difference in accuracy suggests that the Inception Model could potentially offer an alternative and complementary approach to feature extraction.
+The Inception Model has demonstrated commendable performance, achieving a validation accuracy of 93.57% in classifying potato leaf diseases. This accuracy signifies the model's effectiveness in extracting distinctive features relevant to disease patterns, albeit slightly lower compared to the Base CNN Model. The marginal difference in accuracy suggests that the Inception Model could potentially offer an alternative and complementary approach to feature extraction.
 
 To further enhance the Inception Model's accuracy, the recommendation is to embark on a fine-tuning process. Fine-tuning involves adjusting the model's hyperparameters or training on additional data to optimize its performance. This targeted optimization process aims to narrow the accuracy gap and potentially surpass the performance of the Base CNN Model. By understanding these challenges, the fine-tuning process can be more informed, addressing the root causes of misclassifications and bolstering the model's overall predictive capability.
 
-Ensemble Model:
-
-The Ensemble Model, while holding the promise of combining the strengths of the Base CNN and Inception models, unfortunately, demonstrates a notable drop in accuracy to 66.50%. This decline suggests challenges in effectively harnessing the individual models to achieve improved performance. The substantial decrease in accuracy raises concerns about the synergy between the constituent models within the ensemble, indicating that the combined predictive power needs to catch up to expectations.
-
-The observed drop in accuracy prompts a critical examination of the ensemble's architecture and integration methodology. Understanding the factors contributing to this decline is crucial for rectifying and optimizing the ensemble's performance. The current combination strategy may need to leverage the strengths of the individual models more effectively, necessitating a careful reassessment of the ensemble design.
 
 Recommendations and Future Work
 
